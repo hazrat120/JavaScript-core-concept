@@ -1,1 +1,0 @@
-# JavaScript-core-concept
