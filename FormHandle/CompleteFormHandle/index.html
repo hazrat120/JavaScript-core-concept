@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Complete Form Handle</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section id="parent">
+      <form action="#" id="form" name="form">
+        <table>
+          <tr>
+            <td>
+              <label for="fname">First Name </label>
+              <input type="text" name="fname" required />
+            </td>
+
+            <td>
+              <label for="lname">Last Name</label>
+              <input type="text" name="lname" required />
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label for="email">Email </label>
+              <input type="email" name="email" required />
+            </td>
+            <td>
+              <label for="phone">Phone Number</label>
+              <input type="number" name="phone" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label for="birthdate">Date of birth</label>
+              <input
+                type="date"
+                name="bdate"
+                required
+                style="width: 200px; padding: 8px 15px"
+              />
+            </td>
+            <td style="display: flex; justify-content: space-evenly">
+              <label for="gender">Gender</label>
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  gap: 20px;
+                "
+              >
+                <span>
+                  <input
+                    type="radio"
+                    name="gender"
+                    style="width: fit-content; margin-right: 10px"
+                  />
+                  <label for="male" style="padding-bottom: 0">Male</label>
+                </span>
+                <span>
+                  <input
+                    type="radio"
+                    name="gender"
+                    style="width: fit-content; margin-right: 10px"
+                  />
+                  <label for="female" style="padding-bottom: 0">Female</label>
+                </span>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label for="address">Address</label>
+              <input type="text" name="addres" />
+            </td>
+            <td>
+              <label for="streetaddress">Street Address</label>
+              <input type="text" name="staddress" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label for="city">City</label>
+              <input type="text" name="city" />
+            </td>
+            <td>
+              <label for="zipcode">Zip Code</label>
+              <input type="text" name="zipcode" />
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label for="aboutus">How did you hear about us?</label>
+              <textarea
+                name="aboutus"
+                id="aboutus"
+                style="width: 515px; height: 100px"
+              ></textarea>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label for="update"
+                >Would you like to receive updates and promotions via
+                email?</label
+              >
+              <div style="display: flex; column-gap: 50px; padding: 15px 0">
+                <span id="hover">
+                  <input
+                    type="radio"
+                    name="update"
+                    style="width: fit-content; margin-right: 20px"
+                  />
+                  <label for="yes" style="padding-bottom: 0">Yes</label>
+                </span>
+                <span id="hover">
+                  <input
+                    type="radio"
+                    name="update"
+                    style="width: fit-content; margin-right: 20px"
+                  />
+                  <label for="no" style="padding-bottom: 0">No</label>
+                </span>
+              </div>
+            </td>
+          </tr>
+
+          <tr style="display: flex; width: 100%">
+            <td style="display: flex; justify-content: space-evenly">
+              <label for="edu">Educational Status</label>
+              <div style="display: flex; column-gap: 30px">
+                <span style="align-items: center">
+                  <input type="checkbox" name="edu" />
+                  <label for="ssc" style="padding-bottom: 0; margin-left: 10px"
+                    >SSC</label
+                  >
+                </span>
+                <span>
+                  <input type="checkbox" name="edu" />
+                  <label for="hsc" style="padding-bottom: 0; margin-left: 10px"
+                    >HSC</label
+                  >
+                </span>
+                <span>
+                  <input type="checkbox" name="edu" />
+                  <label
+                    for="diploma"
+                    style="padding-bottom: 0; margin-left: 10px"
+                    >Diploma</label
+                  >
+                </span>
+              </div>
+            </td>
+
+            <td>
+              <label for="term&condition" style="text-wrap: nowrap"
+                ><input
+                  type="checkbox"
+                  name="term"
+                  style="width: 20px"
+                  required
+                />
+                I agree to terms & <br />
+                conditions.
+              </label>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <button type="submit" onclick="formHandler()">Submit</button>
+            </td>
+            <td><button type="reset">Reset</button></td>
+          </tr>
+        </table>
+      </form>
+    </section>
+    <script src="main.js"></script>
+  </body>
+</html>
