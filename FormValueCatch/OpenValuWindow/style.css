@@ -1,0 +1,19 @@
+#form {
+  margin: 0 auto;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  background-color: #eaecee;
+  width: 400px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+input {
+  padding: 8px 15px;
+}
+
+button {
+  padding: 10px 30px;
+}

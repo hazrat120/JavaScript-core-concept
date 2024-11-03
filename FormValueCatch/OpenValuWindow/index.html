@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Value Open in Blank Window</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 style="align-items: center">Hello World</h1>
+
+    <h1 id="demo"></h1>
+
+    <form action="#" id="form" name="form">
+      <table>
+        <tr>
+          <td><label for="fname">First Name:</label></td>
+          <td><input type="text" placeholder="First Name" name="fname" /></td>
+        </tr>
+        <tr>
+          <td><label for="laname">Last Name:</label></td>
+          <td><input type="text" placeholder="Last Name" name="lname" /></td>
+        </tr>
+
+        <tr>
+          <td><label for="email">Email:</label></td>
+          <td>
+            <input type="email" placeholder="Enter your email" name="email" />
+          </td>
+        </tr>
+
+        <tr>
+          <td style="padding-top: 30px">
+            <button
+              type="submit"
+              style="background-color: green; color: #fff; border: none"
+              onclick="submitBtn()"
+            >
+              Submit
+            </button>
+          </td>
+          <td style="padding-top: 30px">
+            <button
+              type="reset"
+              style="background-color: red; color: #fff; border: none"
+            >
+              Reset
+            </button>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <!-- script -->
+    <script src="main.js"></script>
+  </body>
+</html>
