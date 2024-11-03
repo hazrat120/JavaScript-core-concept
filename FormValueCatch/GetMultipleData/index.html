@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get Multiple Data into Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Form Multiple Data</h1>
+
+    <form name="form">
+      <table>
+        <tr>
+          <td><label for="fullname">Full Name</label></td>
+          <td>
+            <input
+              type="text"
+              placeholder="Enter your name"
+              id="fullname"
+              name="fullname"
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="email">Email</label></td>
+          <td>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter email"
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="id">Id</label></td>
+          <td>
+            <input type="number" id="id" name="id" placeholder="Enter Id" />
+          </td>
+        </tr>
+
+        <tr>
+          <td><label>Country</label></td>
+          <td>
+            <div>
+              <label for="pakistan">Pakistan</label>
+              <input
+                type="checkbox"
+                id="pakistan"
+                name="country"
+                value="Pakistan"
+              />
+            </div>
+            <div>
+              <label for="bangladesh">Bangladesh</label>
+              <input
+                type="checkbox"
+                id="bangladesh"
+                name="country"
+                value="Bangladesh"
+              />
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label>Gender</label></td>
+          <td>
+            <div>
+              <label for="male">Male</label>
+              <input type="radio" id="male" name="gender" value="Male" />
+            </div>
+            <div>
+              <label for="female">Female</label>
+              <input type="radio" id="female" name="gender" value="Female" />
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="round">Round</label></td>
+          <td>
+            <select name="round" id="round">
+              <option value="">Select</option>
+              <option value=" 58">Round 58</option>
+              <option value=" 59">Round 59</option>
+              <option value=" 60">Round 60</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <button type="submit" onclick="formValue()">Submit</button>
+            <button type="reset">Reset</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <script src="main.js"></script>
+  </body>
+</html>
