@@ -28,14 +28,14 @@ nameInput.addEventListener("change", nameValidation);
 const idInput = document.getElementById("id");
 function idValidation(event) {
   const { value } = event.target;
-  if (submitButton.classList.contains("disable")) {
-    submitButton.classList.remove("disable");
-  }
+
   if (value && value.length >= 6) {
     id = value;
     submitButton.disabled = false;
+    submitButton.classList.remove("disable");
   } else {
     submitButton.disabled = true;
+    submitButton.setAttribute("class", "disable");
   }
 }
 idInput.addEventListener("change", idValidation);
@@ -47,19 +47,17 @@ function checkEmail(event) {
   let alertShow = document.getElementById("alert-show");
   let emailIsNan = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
-  if (submitButton.classList.contains("disable")) {
-    submitButton.classList.remove("disable");
-  }
-
   if (!emailIsNan.test(value)) {
     alertShow.style.display = "block";
     alertShow.style.color = "#FF0000";
     submitButton.disabled = true;
     email = undefined;
+    submitButton.setAttribute("class", "disable");
   } else {
     alertShow.style.display = "none";
     submitButton.disabled = false;
     email = value;
+    submitButton.classList.remove("disable");
   }
 }
 
