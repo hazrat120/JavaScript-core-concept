@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Handle</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 style="text-align: center">Form Handle</h1>
+
+    <!-- requirement: Fullname, Email, Address, option check, radio button, checkbox, submit btn, reset btn -->
+    <form action="" name="form">
+      <table id="table">
+        <!-- Full name -->
+        <tr id="tr">
+          <td>
+            <label for="fullname">Full Name</label>
+            <input type="text" name="fullname" />
+          </td>
+        </tr>
+
+        <!-- Email -->
+        <tr>
+          <td>
+            <label for="email">Email</label>
+            <input type="text" name="email" />
+          </td>
+        </tr>
+
+        <!-- address -->
+        <tr>
+          <td>
+            <label for="address">Address</label>
+            <textarea name="address" id="area"></textarea>
+          </td>
+        </tr>
+
+        <!-- Round -->
+        <tr>
+          <td>
+            <label for="round">Round</label>
+            <select name="round" id="" style="height: 40px">
+              <option name="round" value="61" id="">Round 61</option>
+              <option name="round" value="62" id="">Round 62</option>
+              <option name="round" value="63" id="">Round 63</option>
+              <option name="round" value="64" id="">Round 64</option>
+            </select>
+          </td>
+        </tr>
+
+        <!-- for subject -->
+        <tr>
+          <td>
+            <label for="subject">Submect</label>
+            <div style="display: flex; gap: 10px">
+              <span>
+                <label for="eng">English</label>
+                <input
+                  type="checkbox"
+                  name="subject"
+                  value="English"
+                  id="eng"
+                />
+              </span>
+              <span>
+                <label for="bangla">Bangali</label>
+                <input
+                  type="checkbox"
+                  name="subject"
+                  value="Bangali"
+                  id="bangla"
+                />
+              </span>
+              <span>
+                <label for="urdu">Urdu</label>
+                <input type="checkbox" name="subject" value="Urdu" id="urdu" />
+              </span>
+            </div>
+          </td>
+        </tr>
+
+        <!-- for gender -->
+        <tr>
+          <td>
+            <label for="gender">Gender</label>
+            <div style="display: flex; gap: 15px">
+              <span>
+                <label for="male">Male</label>
+                <input
+                  type="radio"
+                  name="gen"
+                  value="Male"
+                  style="width: fit-content"
+                  id="male"
+                />
+              </span>
+              <span>
+                <label for="female">Female</label>
+                <input type="radio" name="gen" value="Female" id="female" />
+              </span>
+            </div>
+          </td>
+        </tr>
+
+        <!-- submit and reset button -->
+        <tr>
+          <td>
+            <div style="display: flex; gap: 30px">
+              <span
+                ><button
+                  type="submit"
+                  onclick="formHandler(event)"
+                  style="
+                    background-color: green;
+                    color: white;
+                    font-size: 18px;
+                    padding: 10px 20px;
+                    border: none;
+                    border-radius: 8px;
+                  "
+                >
+                  Submit
+                </button></span
+              >
+              <span>
+                <button
+                  type="reset"
+                  style="
+                    background-color: red;
+                    color: white;
+                    font-size: 18px;
+                    padding: 10px 20px;
+                    border: none;
+                    border-radius: 8px;
+                  "
+                >
+                  Reset
+                </button>
+              </span>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    <!-- script -->
+    <script src="main.js"></script>
+  </body>
+</html>

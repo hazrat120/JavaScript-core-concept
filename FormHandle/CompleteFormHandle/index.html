@@ -57,6 +57,7 @@
                   <input
                     type="radio"
                     name="gender"
+                    value="Male"
                     style="width: fit-content; margin-right: 10px"
                   />
                   <label for="male" style="padding-bottom: 0">Male</label>
@@ -65,6 +66,7 @@
                   <input
                     type="radio"
                     name="gender"
+                    value="female"
                     style="width: fit-content; margin-right: 10px"
                   />
                   <label for="female" style="padding-bottom: 0">Female</label>
@@ -117,6 +119,7 @@
                   <input
                     type="radio"
                     name="update"
+                    value="Yes"
                     style="width: fit-content; margin-right: 20px"
                   />
                   <label for="yes" style="padding-bottom: 0">Yes</label>
@@ -125,6 +128,7 @@
                   <input
                     type="radio"
                     name="update"
+                    value="No"
                     style="width: fit-content; margin-right: 20px"
                   />
                   <label for="no" style="padding-bottom: 0">No</label>
@@ -138,19 +142,19 @@
               <label for="edu">Educational Status</label>
               <div style="display: flex; column-gap: 30px">
                 <span style="align-items: center">
-                  <input type="checkbox" name="edu" />
+                  <input type="checkbox" name="edu" value="SSC" />
                   <label for="ssc" style="padding-bottom: 0; margin-left: 10px"
                     >SSC</label
                   >
                 </span>
                 <span>
-                  <input type="checkbox" name="edu" />
+                  <input type="checkbox" name="edu" value="HSC" />
                   <label for="hsc" style="padding-bottom: 0; margin-left: 10px"
                     >HSC</label
                   >
                 </span>
                 <span>
-                  <input type="checkbox" name="edu" />
+                  <input type="checkbox" name="edu" value="Diploma" />
                   <label
                     for="diploma"
                     style="padding-bottom: 0; margin-left: 10px"
@@ -165,6 +169,7 @@
                 ><input
                   type="checkbox"
                   name="term"
+                  value="Checked"
                   style="width: 20px"
                   required
                 />
@@ -176,9 +181,36 @@
 
           <tr>
             <td>
-              <button type="submit" onclick="formHandler()">Submit</button>
+              <button
+                type="submit"
+                onclick="formHandler()"
+                style="
+                  padding: 8px 15px;
+                  border-radius: 5px;
+                  font-size: 18px;
+                  background-color: green;
+                  color: #fff;
+                  border: none;
+                "
+              >
+                Submit
+              </button>
             </td>
-            <td><button type="reset">Reset</button></td>
+            <td>
+              <button
+                type="reset"
+                style="
+                  padding: 8px 15px;
+                  border-radius: 5px;
+                  font-size: 18px;
+                  background-color: red;
+                  color: #fff;
+                  border: none;
+                "
+              >
+                Reset
+              </button>
+            </td>
           </tr>
         </table>
       </form>
