@@ -2,6 +2,7 @@
 function formHandler(e) {
   e.preventDefault();
 
+  let title = "Hello World";
   let fullname = document.form.fullname.value;
   let email = document.form.email.value;
   let address = document.form.address.value;
@@ -18,15 +19,33 @@ function formHandler(e) {
     }
   }
 
-  let newWindow = window.open("", "", "width: 400px, height: 700px");
+  let newWindow = window.open("", "", "width: 200px, height: 700px");
 
   with (newWindow.document) {
-    write(`Full name: ${fullname}. <br/>`);
+    write(`<html>`);
+    write(`<head><title>` + title + `</title></head>`);
+    write(`<body>`);
+    write(`<div>`);
+    write(`Full Name: ${fullname} <br/>`);
     write(`Email: ${email} <br/>`);
+    write(`Gender: ${gender} <br/>`);
     write(`Address: ${address} <br/>`);
     write(`Round: ${round} <br/>`);
-    write(`Subject: ${subject} <br/>`);
-    write(`Gender: ${gender} <br/>`);
-    write(``);
+    write(`Education: ${subject} <br/> <br/> `);
+    write(
+      `<input type='button' value='Close me' style="
+                    background-color: red;
+                    color: white;
+                    font-size: 14px;
+                    padding: 8px 15px;
+                    border: none;
+                    border-radius: 8px;
+                    margin-right: 10px;
+                  " onclick='self.close();' />`
+    );
+    write(`<input type='button' value='Print' onclick='self.print();' />`);
+    write(`</div>`);
+    write(`</body>`);
+    write(`</html>`);
   }
 }
