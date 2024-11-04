@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Handle 2</title>
+
+    <style>
+      form {
+        width: 300px;
+        height: auto;
+        background: linear-gradient(rgb(224, 200, 200), #797b90);
+        margin: 0 auto;
+        margin-top: 100px;
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      input {
+        width: 90%;
+        padding: 8px 10px;
+        border: none;
+        border-radius: 5px;
+      }
+
+      div {
+        margin: 10px 0;
+      }
+
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 8px;
+      }
+
+      button {
+        padding: 8px 20px;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="" name="form">
+      <div>
+        <label for="fullname">Full Name</label>
+        <input type="text" name="fullname" />
+      </div>
+
+      <div>
+        <label for="id">ID</label>
+        <input type="number" name="id" />
+      </div>
+
+      <div>
+        <label for="email">Email</label>
+        <input type="text" name="email" />
+      </div>
+
+      <div>
+        <label for="round">Course Round</label>
+        <select
+          name="round"
+          id="subject"
+          style="width: 95%; height: 40px; border-radius: 5px"
+        >
+          <option value="" selected>Select</option>
+          <option value="61">Round 61</option>
+          <option value="62">Round 62</option>
+          <option value="63">Round 63</option>
+          <option value="64">Round 64</option>
+        </select>
+      </div>
+
+      <div style="display: flex; gap: 30px; margin: 5px 0">
+        <label for="gender">Sex: </label>
+        <span>
+          <label for="male">Male</label>
+          <input type="radio" name="gen" value="Male" id="male" />
+        </span>
+        <span>
+          <label for="female">Female</label>
+          <input type="radio" name="gen" value="Female" id="female" />
+        </span>
+      </div>
+
+      <div
+        style="
+          display: flex;
+          gap: 30px;
+          justify-content: center;
+          margin-top: 40px;
+        "
+      >
+        <button
+          type="submit"
+          onclick="formHandler()"
+          style="background-color: green"
+        >
+          Submit
+        </button>
+        <button type="reset" style="background-color: red">Reset</button>
+      </div>
+    </form>
+    <!-- script -->
+    <script src="main.js"></script>
+  </body>
+</html>
