@@ -19,7 +19,6 @@ function nameValidation(event) {
     submitButton.disabled = false;
   } else {
     submitButton.disabled = true;
-    alert("Your name is invalid. Name Start 4 char!");
   }
 }
 nameInput.addEventListener("change", nameValidation);
