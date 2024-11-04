@@ -40,23 +40,33 @@
         border-radius: 5px;
         color: #fff;
       }
+
+      .disable {
+        cursor: not-allowed;
+        opacity: 0.6;
+        background-color: #ccc;
+        color: #666;
+      }
     </style>
   </head>
   <body>
-    <form action="" name="form">
+    <form action="#" name="form" id="form">
       <div>
         <label for="fullname">Full Name</label>
-        <input type="text" name="fullname" />
+        <input type="text" name="fullname" id="name" />
       </div>
 
       <div>
         <label for="id">ID</label>
-        <input type="number" name="id" />
+        <input type="number" name="id" id="id" />
       </div>
 
       <div>
         <label for="email">Email</label>
-        <input type="text" name="email" />
+        <input type="text" name="email" id="email" />
+        <span style="margin-top: 5px; display: none" id="alert-show"
+          >please inter valid email</span
+        >
       </div>
 
       <div>
@@ -94,11 +104,7 @@
           margin-top: 40px;
         "
       >
-        <button
-          type="submit"
-          onclick="formHandler()"
-          style="background-color: green"
-        >
+        <button type="submit" style="background-color: green" id="submit">
           Submit
         </button>
         <button type="reset" style="background-color: red">Reset</button>
