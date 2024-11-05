@@ -5,7 +5,7 @@ let id = "";
 
 const submitButton = document.getElementById("submit");
 
-// namva input validation
+// name input validation
 const nameInput = document.getElementById("name");
 function nameValidation(event) {
   const { value } = event.target;
@@ -14,13 +14,14 @@ function nameValidation(event) {
     submitButton.classList.remove("disable");
   }
 
-  if (value && value.length >= 4) {
+  if (value && value.length >= 3 && value.length <= 15) {
     userName = value;
     submitButton.disabled = false;
   } else {
     submitButton.disabled = true;
   }
 }
+
 nameInput.addEventListener("change", nameValidation);
 
 // id input validation
@@ -62,10 +63,6 @@ function checkEmail(event) {
 
 emailInput.addEventListener("change", checkEmail);
 
-// catch name id and regular exp.
-// let name = document.getElementById("name");
-// let id = document.getElementById("id");
-
 function formHandler() {
   let title = "Window popup";
   let fullname = document.form.fullname.value;
@@ -97,9 +94,20 @@ function formHandler() {
     write(`ID: ${id} <br/> <br/>`);
     write(`Round: ${round} <br/> <br/>`);
     write(`Sex: ${sex} <br/> <br/>`);
+    write(
+      `<input type='button' value='Close me' style="
+                    background-color: red;
+                    color: white;
+                    font-size: 14px;
+                    padding: 8px 15px;
+                    border: none;
+                    border-radius: 8px;
+                    margin-right: 10px;
+                  " onclick='self.close();' />`
+    );
+    write(`<input type='button' value='Print' onclick='self.print();' />`);
     write(`<form/>`);
     write(`</body>`);
-    write(`Full Name: ${fullname}`);
     write(`</html>`);
   }
 }

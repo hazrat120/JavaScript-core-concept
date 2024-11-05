@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evidance exam</title>
+
+    <style>
+      #form_container {
+        background: linear-gradient(to left, cadetblue, dodgerblue);
+        width: 400px;
+        padding: 40px;
+        margin: 0 auto;
+        color: white;
+        border-radius: 5px;
+        box-shadow: rgba(0, 0, 0, 0.45) 0px 10px 20px;
+      }
+
+      .inputBox,
+      .input_course,
+      .genderBox {
+        margin-bottom: 15px;
+      }
+
+      .inputBox input {
+        width: 100%;
+        padding: 5px 0;
+        border: none;
+        outline: none;
+      }
+
+      button {
+        padding: 10px 30px;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .sub {
+        background-color: rgb(60, 224, 82);
+      }
+
+      .sub:disabled {
+        background-color: grey;
+        cursor: not-allowed;
+        color: #ffffff;
+      }
+
+      .res {
+        background-color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section>
+      <form action="" id="form_container" name="form">
+        <div class="inputBox">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            oninput="checkFormValidity()"
+            onchange="nameChecker()"
+          />
+          <span
+            style="display: none; color: red; font-weight: 700"
+            class="nameValid error"
+            >Your Name must be between 4-6 character</span
+          >
+        </div>
+        <div class="inputBox">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            onblur="emailChecker()"
+            oninput="checkFormValidity()"
+          />
+          <span
+            style="display: none; color: red; font-weight: 700"
+            class="emailValid error"
+            >Your Email is invalid. Please provide valid email</span
+          >
+        </div>
+        <div class="input_course">
+          <label for="course">Course</label>
+          <select name="course" id="course" oninput="checkFormValidity()">
+            <option value="" selected="selected">Select Your Course</option>
+            <option value="htmlcss">HTML CSS</option>
+            <option value="javascript">Core Javascript</option>
+            <option value="python">Python</option>
+            <option value="java">Java</option>
+            <option value="react">React Js</option>
+            <option value="php">PHP</option>
+          </select>
+        </div>
+
+        <div class="genderBox">
+          <label for="gender">Gender</label>
+          <input
+            type="radio"
+            name="gender"
+            id="male"
+            value="male"
+            oninput="checkFormValidity()"
+          />
+          <label for="male">Male</label>
+          <input
+            type="radio"
+            name="gender"
+            id="female"
+            value="female"
+            oninput="checkFormValidity()"
+          />
+          <label for="female">Female</label>
+        </div>
+
+        <div class="btn">
+          <button
+            type="submit"
+            onclick="handleSubmitForm()"
+            class="sub"
+            disabled
+          >
+            Submit
+          </button>
+          <button type="reset" class="res">Reset</button>
+        </div>
+      </form>
+    </section>
+
+    <script>
+      // Email Validation
+      const emailChecker = () => {
+        const email = document.getElementById("email").value;
+        const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,4}$/;
+        const emailValidMessage = document.querySelector(".emailValid");
+        const submitButton = document.querySelector(".sub");
+
+        // document.querySelector('.emailValid').style.display = emailPattern.test(email) ? 'none' : 'inline';
+
+        if (!emailPattern.test(email)) {
+          emailValidMessage.style.display = "inline";
+        } else {
+          emailValidMessage.style.display = "none";
+        }
+        checkFormValidity();
+      };
+
+      // Name Validation
+
+      const nameChecker = () => {
+        const name = document.getElementById("name").value;
+        const nameValidMessage = document.querySelector(".nameValid");
+        const submitButton = document.querySelector(".sub");
+        const namePattren = /^[A-Za-z][0-9A-Za-z ]{3,10}$/;
+
+        // ternary operator
+        // document.querySelector('.nameValid').style.display = namePattern.test(name) ? 'none' : 'inline';
+        // checkFormValidity();
+
+        if (!namePattren.test(name)) {
+          nameValidMessage.style.display = "inline";
+        } else {
+          nameValidMessage.style.display = "none";
+        }
+
+        // if (name.length < 4 || name.length > 12) {
+        //     nameValidMessage.style.display = 'inline';
+        // } else {
+        //     nameValidMessage.style.display = 'none';
+        // }
+        checkFormValidity();
+      };
+
+      const checkFormValidity = () => {
+        const name = document.getElementById("name").value.trim(); // remove white space in input field text
+        const email = document.getElementById("email").value.trim();
+        const course = document.getElementById("course").value;
+        const gender = document.querySelector('input[name="gender"]:checked');
+
+        const submitButton = document.querySelector(".sub");
+        const nameValidMessage = document.querySelector(".nameValid");
+        const emailValidMessage = document.querySelector(".emailValid");
+
+        submitButton.disabled = !(
+          name &&
+          email &&
+          course &&
+          gender &&
+          emailValidMessage.style.display === "none" &&
+          nameValidMessage.style.display === "none"
+        );
+      };
+
+      const handleSubmitForm = () => {
+        let formvalue = document.form;
+        let nameValue = formvalue.name.value;
+        let emailValue = formvalue.email.value;
+        let courseValue = formvalue.course.value;
+        let genderValue = formvalue.gender.value;
+
+        let openWindow = window.open(
+          "",
+          "",
+          "width=500px, height=400px, top=150px, left=400px"
+        );
+
+        with (openWindow.document) {
+          write(
+            `<body style="background: linear-gradient(to left, rgb(32, 83, 85), rgb(50, 80, 110)">`
+          );
+          write(`<div style="background: linear-gradient(to right, cadetblue, dodgerblue);
+            width: 300px;
+            padding: 40px;
+            margin: 100px auto;
+            color: white;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.45) 0px 10px 20px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+            ">`);
+
+          write(`Name: ${nameValue} <br>`);
+          write(`Email: ${emailValue} <br>`);
+          write(`Course: ${courseValue} <br>`);
+          write(`Gender: ${genderValue} <br> <br>`);
+          write(`<button onclick="self.close()" style=" background-color: red; font-size: 16px;padding: 10px 20px;
+                border: none;
+                outline: none;
+                border-radius: 5px;
+                color: white;
+                cursor: pointer;" >Close</button> `);
+
+          write(`<button onclick="self.print()" style="background-color: rgb(60, 224, 82); font-size: 16px;padding: 10px 20px;
+                border: none;
+                outline: none;
+                border-radius: 5px;
+                color: white;
+                cursor: pointer;" >Print</button> `);
+        }
+      };
+    </script>
+  </body>
+</html>
