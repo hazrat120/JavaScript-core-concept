@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Form</title>
+    <style>
+      #parent {
+        width: 350px;
+        margin: 0 auto;
+        border-radius: 10px;
+        margin-top: 50px;
+        background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        transition: all linear 0.4;
+      }
+      #parent:hover {
+        box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
+      }
+      #form {
+        padding: 50px;
+      }
+      #wrap {
+        max-width: 320px;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
+      #wrap > label {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+      #wrap > input {
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+      }
+      #span-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        column-gap: 10px;
+      }
+      #btn-wrap {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin-top: 30px;
+      }
+      button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: 600;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parent">
+      <form action="#" name="form" id="form">
+        <!-- name fild -->
+        <div id="wrap">
+          <label for="fullname">Full Name</label>
+          <input
+            type="text"
+            name="fullname"
+            id="name"
+            onchange="nameValidate(event)"
+          />
+          <span
+            id="nameAlert"
+            style="display: none; color: red; margin-top: 5px"
+            >Invalid email! Name start 4 end 12 leter.</span
+          >
+        </div>
+
+        <!-- email fild -->
+        <div id="wrap">
+          <label for="email">Email</label>
+          <input
+            type="text"
+            name="email"
+            id="email"
+            onchange="emailValidate(event)"
+          />
+          <span
+            id="emailAlert"
+            style="display: none; color: red; margin-top: 5px"
+            >Invalid email!</span
+          >
+        </div>
+
+        <!-- round fild -->
+        <div id="wrap">
+          <label for="round">Round</label>
+          <select
+            name="round"
+            id="round"
+            style="padding: 8px 0; border: none; border-radius: 5px"
+          >
+            <option value="select" selected>Select</option>
+            <option value="51">Round 51</option>
+            <option value="52">Round 52</option>
+            <option value="53">Round 53</option>
+            <option value="54">Round 54</option>
+            <option value="55">Round 55</option>
+          </select>
+        </div>
+
+        <!-- language fild -->
+        <div id="wrap">
+          <label for="language" style="margin-bottom: 8px"
+            >Favorite Language</label
+          >
+          <div id="span-wrap">
+            <span style="display: flex; align-items: center">
+              <label for="javaScript">JavaScript</label>
+              <input
+                type="checkbox"
+                name="language"
+                id="javaScript"
+                value="javaScript"
+              />
+            </span>
+            <span style="display: flex; align-items: center">
+              <label for="java">Java</label>
+              <input type="checkbox" name="language" id="java" value="java" />
+            </span>
+            <span style="display: flex; align-items: center">
+              <label for="python">Python</label>
+              <input
+                type="checkbox"
+                name="language"
+                id="python"
+                value="python"
+              />
+            </span>
+          </div>
+        </div>
+
+        <!-- gender fild -->
+        <div id="wrap">
+          <label for="gender">Gender</label>
+          <div id="span-wrap">
+            <span style="display: flex; align-items: center">
+              <label for="male">Male</label>
+              <input type="radio" name="gender" id="male" value="male" />
+            </span>
+            <span style="display: flex; align-items: center">
+              <label for="female">Female</label>
+              <input type="radio" name="gender" id="female" value="female" />
+            </span>
+          </div>
+        </div>
+
+        <!-- button fild -->
+        <div id="btn-wrap">
+          <button
+            type="submit"
+            onclick="handleSubmit()"
+            style="background-color: green; cursor: pointer"
+            id="subBtn"
+            disabled
+          >
+            Submit
+          </button>
+          <button type="reset" style="background-color: red; cursor: pointer">
+            Reset
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Script -->
+    <script>
+      //variable initial
+      let fullname = "";
+      let email = "";
+
+      const submitBtn = document.getElementById("subBtn");
+
+      // Name validation
+      const nameValidate = (event) => {
+        let { value } = event.target;
+        let nameRegx = /^[A-Za-z][0-9A-Za-z ]{4,12}$/;
+        let nameAlert = document.getElementById("nameAlert");
+
+        if (!nameRegx.test(value)) {
+          submitBtn.disabled = true;
+          submitBtn.style.cursor = "not-allowed";
+          nameAlert.style.display = "block";
+        } else {
+          submitBtn.disabled = false;
+          nameAlert.style.display = "none";
+          fullname = value;
+        }
+      };
+
+      // Email Validation
+      const emailValidate = (event) => {
+        let { value } = event.target;
+        let emailRegx = /^[^ ]+@[^ ]+\.[a-z]{2,4}$/;
+        let emailAleart = document.getElementById("emailAlert");
+
+        if (!emailRegx.test(value)) {
+          submitBtn.disabled = true;
+          submitBtn.style.cursor = "not-allowed";
+          emailAleart.style.display = "block";
+        } else {
+          email = value;
+          emailAleart.style.display = "none";
+        }
+      };
+
+      //  handle submit
+      const handleSubmit = () => {
+        let language = document.querySelector('input[name="language"]:checked');
+        let formValue = document.form;
+        let roundValue = formValue.round.value;
+        let genderValue = formValue.gender.value;
+        let lanValu = language.value;
+
+        let openWindow = window.open(
+          "",
+          "",
+          "width: 500px, height: 400, top: 100px, left: 400px"
+        );
+
+        let formStyle = `style="width: 350px;
+        margin: 0 auto;
+        border-radius: 10px;
+        padding: 40px;
+        margin-top: 50px;
+        background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        transition: all linear 0.4;"`;
+
+        let closebtn = `style=" background-color: red; font-size: 16px;padding: 10px 20px;
+                border: none;
+                outline: none;
+                border-radius: 5px;
+                color: white;
+                cursor: pointer;"`;
+
+        let printbtn = `style="background-color: rgb(60, 224, 82); font-size: 16px;padding: 10px 20px;
+                border: none;
+                outline: none;
+                border-radius: 5px;
+                color: white;
+                cursor: pointer;"`;
+
+        with (openWindow.document) {
+          write(`<body >`);
+          write(`<div ${formStyle}>`);
+
+          write(`Name: ${fullname} <br>`);
+          write(`Email: ${email} <br>`);
+          write(`Round: ${roundValue} <br>`);
+          write(`Language: ${lanValu}<br>`);
+          write(`Gender: ${genderValue}<br><br>`);
+          write(`<button onclick="self.close()" ${closebtn} >Close</button> `);
+
+          write(`<button onclick="self.print()" ${printbtn}>Print</button> `);
+        }
+      };
+
+      function onSubmit(event) {
+        event.preventDefault();
+        let language = document.querySelector('input[name="language"]:checked');
+        let formValue = document.form;
+        let roundValue = formValue.round.value;
+        let genderValue = formValue.gender.value;
+        let lanValu = language.value;
+
+        if (fullname && email && roundValue && genderValue && lanValu) {
+          handleSubmit();
+        } else {
+          submitBtn.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>

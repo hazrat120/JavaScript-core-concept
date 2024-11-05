@@ -143,8 +143,6 @@
         const emailValidMessage = document.querySelector(".emailValid");
         const submitButton = document.querySelector(".sub");
 
-        // document.querySelector('.emailValid').style.display = emailPattern.test(email) ? 'none' : 'inline';
-
         if (!emailPattern.test(email)) {
           emailValidMessage.style.display = "inline";
         } else {
@@ -154,16 +152,11 @@
       };
 
       // Name Validation
-
       const nameChecker = () => {
         const name = document.getElementById("name").value;
         const nameValidMessage = document.querySelector(".nameValid");
         const submitButton = document.querySelector(".sub");
         const namePattren = /^[A-Za-z][0-9A-Za-z ]{3,10}$/;
-
-        // ternary operator
-        // document.querySelector('.nameValid').style.display = namePattern.test(name) ? 'none' : 'inline';
-        // checkFormValidity();
 
         if (!namePattren.test(name)) {
           nameValidMessage.style.display = "inline";
@@ -171,11 +164,6 @@
           nameValidMessage.style.display = "none";
         }
 
-        // if (name.length < 4 || name.length > 12) {
-        //     nameValidMessage.style.display = 'inline';
-        // } else {
-        //     nameValidMessage.style.display = 'none';
-        // }
         checkFormValidity();
       };
 
