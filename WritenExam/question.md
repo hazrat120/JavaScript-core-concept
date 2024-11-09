@@ -112,21 +112,21 @@
     Ans. Var: It can be updated or re-declared.
 
     ```javascript
-        var one = "I can update and re-declared!";
-        var one = "I can update and re-declared!";
+        var one = "It's can update and re-declared!";
+        var one = "It's can update and re-declared!";
     ```
 
     let: It can only be updated and can't be re-declared.
 
     ```javascript
-        let one;
-        one = "I can update and can't re-declared!";
+        let one = "It's can update, cant't re-declared!";
+        one = "It's can update, cant't re-declared! 2";
     ```
 
     const: It can't be updated or re-declared.
 
     ```javascript
-        const one = "I can't update and can't be re-declared!";
+        const one = "I can't update or can't be re-declared!";
     ```
 
 # 8. What is the different between while and do-while loop?
@@ -134,12 +134,16 @@
     Ans. Code First: The do...while loop runs the code at least once before checking the condition. This means the code inside will always execute once, even if the condition is false initially.
 
     ```javascript
-        Syntax: do {
+        Syntax:
+        do {
         // code to execute
         } while (condition);
-        Example: let i = 0;
+
+        Example:
+
+        let i = 0;
         do {
-        console.log(i); // Outputs: 0, 1, 2
+        console.log(i); // Outputs: 0, 1, 2. The do...while loop runs the code at least once before checking the condition.
         i++;
         } while (i < 3);
     ```
@@ -151,7 +155,8 @@
         // code to execute
         }
 
-        Example: let i = 0;
+        Example: 
+        let i = 0;
         while (i < 3){
         console.log(i);
         i++;
@@ -172,6 +177,7 @@
         function greet(name) {
         return "Hello, " + name + "!";
         }
+        greet("Ali"); // output: Hello, Ali!.
     ```
 
 # 10. How to use ternary operator in JavaScript ?

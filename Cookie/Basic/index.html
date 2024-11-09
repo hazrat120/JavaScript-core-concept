@@ -3,16 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cookie</title>
+    <title>cookies</title>
   </head>
   <body>
-    <h1 style="text-align: center">JavaScript Cookie</h1>
+    <h1 style="text-align: center">Hello World</h1>
 
     <h2 id="demo"></h2>
+    <!-- Script -->
     <script>
-      // set cookie
-      document.cookie =
-        "username=Hazrat Ali; expires=Thu, 9 Dec 2024 9:40:00 UTC; path=/";
+      // Cookie তৈরি করার syntax
+      //   document.cookie =
+      //     "cookieName=cookieValue; expires=expirationDate; path=cookiePath";
+
+      //     document.cookie = "username=JohnDoe; expires=Fri, 8 Nov 2024 23:59:59 GMT; path=/";
+
+      //   let cookies = document.cookie;
+      //   console.log(cookies);
+
+      //   function getCookie(name) {
+      //     let cookieArr = document.cookie.split("; ");
+      //     for (let i = 0; i < cookieArr.length; i++) {
+      //       let cookiePair = cookieArr[i].split("=");
+      //       if (name === cookiePair[0]) {
+      //         return cookiePair[1];
+      //       }
+      //     }
+      //     return null;
+      //   }
+
+      //   console.log(getCookie("username"));
+
+      //   let cooki = (document.cookie =
+      //     "user=Alice; expires: Fri, 8 Nov 2024 23:59: 59 GMT");
+      //   console.log(cooki);
+      //   let cooki2 = (document.cookie = "user=Hazrat; max-age= 3600");
+      //   console.log(cooki2);
+
+      //   let cooki3 = (document.cookie = "theme=dark; path=/");
+      //   console.log(cooki3);
+
+      //   let cookie4 = (document.cookie = "region=USA; docmain=example.com");
+
+      //   console.log((document.cookie = "sessionToken=xyz123; secure"));
+
+      function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+          const date = new Date();
+          date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+          expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+      }
+
+      setCookie('hazrat', '')
     </script>
   </body>
 </html>
