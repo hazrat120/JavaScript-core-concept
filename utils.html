@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hello World</h1>
+
+    <button onclick="setCookie()">Set Cookie</button>
+    <button onclick="showCookie()">Show Cookie</button>
+    <script>
+      //   let name = prompt("Enter your name!");
+      //   alert("Hello " + name + "!");
+      // class Animal {
+      //   constructor(name, sound) {
+      //     this.name = name;
+      //     this.sound = sound;
+      //   }
+
+      //   animalSound = function () {
+      //     console.log(` ${this.name} animal sound like ${this.sound}`);
+      //   };
+      // }
+
+      // class Kutta extends Animal {
+      //   constructor(name, sound, color, size) {
+      //     super(name, sound);
+      //     this.color = color;
+      //     this.size = size;
+      //   }
+
+      //   animaldesc() {
+      //     console.log(
+      //       `${this.name}, ${this.sound}, ${this.color}, ${this.size}`
+      //     );
+      //   }
+      // }
+
+      // const Tiger = new Kutta("Tiger", "Halum", "black", "25");
+
+      // Tiger.animaldesc();
+
+      class Animals {
+        constructor(name, color) {
+          this.name = name;
+          this.color = color;
+        }
+
+        animalNameCoor() {
+          console.log(
+            `Animal name: ${this.name} and animal color is: ${this.color} and this animal sound like: ${this.sound}`
+          );
+        }
+      }
+
+      class Dog extends Animals {
+        constructor(name, color, sound, habit) {
+          super(name, color, sound);
+          this.sound = sound;
+          this.habit = habit;
+        }
+
+        dogHabit() {
+          console.log(
+            `Dog Name: ${this.name}, Dog Color: ${this.color}, Dog Sound: ${this.sound} Dog Habit: ${this.habit}`
+          );
+        }
+      }
+
+      class DogBrother extends Dog {
+        constructor(name, color, sound, habit, work, food) {
+          super(name, color, sound, habit, work, food);
+          this.work = work;
+          this.food = food;
+        }
+
+        dogLike() {
+          console.log(
+            `DogBrother like: ${this.food}, and He work: ${this.work}`
+          );
+        }
+      }
+
+      const dogBro = new DogBrother(
+        "Tome",
+        "brown",
+        "Gaw Gaw",
+        "Chewing",
+        "Mental Health Support",
+        "Canned"
+      );
+
+      dogBro.animalNameCoor();
+
+      // function getCookie(name) {
+      //   const value = `; ${document.cookie}`;
+      //   const parts = value.split(`; ${name}=`);
+      //   if (parts.length === 2) return parts.pop().split(";").shift();
+      //   return null;
+      // }
+
+      // console.log(getCookie("username")); // Output: JohnDoe
+
+      function setCookie() {
+        document.cookie =
+          "username=Hazrat Ali; expires=Thur, 31 Dec 2024 23:59:59 GMT; path=/";
+      }
+
+      function showCookie() {
+        if ((document.cookie.length = !0)) {
+          alert(document.cookie);
+        } else {
+          alert("Cookie not set!");
+        }
+      }
+    </script>
+  </body>
+</html>
