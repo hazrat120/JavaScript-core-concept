@@ -42,57 +42,57 @@
 
       // Tiger.animaldesc();
 
-      class Animals {
-        constructor(name, color) {
-          this.name = name;
-          this.color = color;
-        }
+      // class Animals {
+      //   constructor(name, color) {
+      //     this.name = name;
+      //     this.color = color;
+      //   }
 
-        animalNameCoor() {
-          console.log(
-            `Animal name: ${this.name} and animal color is: ${this.color} and this animal sound like: ${this.sound}`
-          );
-        }
-      }
+      //   animalNameCoor() {
+      //     console.log(
+      //       `Animal name: ${this.name} and animal color is: ${this.color} and this animal sound like: ${this.sound}`
+      //     );
+      //   }
+      // }
 
-      class Dog extends Animals {
-        constructor(name, color, sound, habit) {
-          super(name, color, sound);
-          this.sound = sound;
-          this.habit = habit;
-        }
+      // class Dog extends Animals {
+      //   constructor(name, color, sound, habit) {
+      //     super(name, color, sound);
+      //     this.sound = sound;
+      //     this.habit = habit;
+      //   }
 
-        dogHabit() {
-          console.log(
-            `Dog Name: ${this.name}, Dog Color: ${this.color}, Dog Sound: ${this.sound} Dog Habit: ${this.habit}`
-          );
-        }
-      }
+      //   dogHabit() {
+      //     console.log(
+      //       `Dog Name: ${this.name}, Dog Color: ${this.color}, Dog Sound: ${this.sound} Dog Habit: ${this.habit}`
+      //     );
+      //   }
+      // }
 
-      class DogBrother extends Dog {
-        constructor(name, color, sound, habit, work, food) {
-          super(name, color, sound, habit, work, food);
-          this.work = work;
-          this.food = food;
-        }
+      // class DogBrother extends Dog {
+      //   constructor(name, color, sound, habit, work, food) {
+      //     super(name, color, sound, habit, work, food);
+      //     this.work = work;
+      //     this.food = food;
+      //   }
 
-        dogLike() {
-          console.log(
-            `DogBrother like: ${this.food}, and He work: ${this.work}`
-          );
-        }
-      }
+      //   dogLike() {
+      //     console.log(
+      //       `DogBrother like: ${this.food}, and He work: ${this.work}`
+      //     );
+      //   }
+      // }
 
-      const dogBro = new DogBrother(
-        "Tome",
-        "brown",
-        "Gaw Gaw",
-        "Chewing",
-        "Mental Health Support",
-        "Canned"
-      );
+      // const dogBro = new DogBrother(
+      //   "Tome",
+      //   "brown",
+      //   "Gaw Gaw",
+      //   "Chewing",
+      //   "Mental Health Support",
+      //   "Canned"
+      // );
 
-      dogBro.animalNameCoor();
+      // dogBro.animalNameCoor();
 
       // function getCookie(name) {
       //   const value = `; ${document.cookie}`;
@@ -103,18 +103,88 @@
 
       // console.log(getCookie("username")); // Output: JohnDoe
 
-      function setCookie() {
-        document.cookie =
-          "username=Hazrat Ali; expires=Thur, 31 Dec 2024 23:59:59 GMT; path=/";
-      }
+      // function setCookie() {
+      //   document.cookie =
+      //     "username=Hazrat Ali; expires=Thur, 31 Dec 2024 23:59:59 GMT; path=/";
+      // }
 
-      function showCookie() {
-        if ((document.cookie.length = !0)) {
-          alert(document.cookie);
-        } else {
-          alert("Cookie not set!");
-        }
-      }
+      // function showCookie() {
+      //   if ((document.cookie.length = !0)) {
+      //     alert(document.cookie);
+      //   } else {
+      //     alert("Cookie not set!");
+      //   }
+      // }
+
+      // for (let i = 0; i < 10; i++) {
+      //   if (i === 5) {
+      //     break; // Exits the loop when i is 5
+      //   }
+      //   console.log(i); // prints 0, 1, 2, 3, 4
+      // }
+
+      // for (let i = 0; i < 10; i++) {
+      //   if (i === 5) {
+      //     break; // Exits the loop when i is 5
+      //   }
+      //   console.log(i); // prints 0, 1, 2, 3, 4
+      // }
+
+      // for (let i = 0; i < 10; i++) {
+      //   if (i === 5) {
+      //     continue; // Skips the rest of the code for the iteration when i is 5
+      //   }
+      //   console.log(i); // Prints 0, 1, 2, 3, 4, 6, 7, 8, 9 (Skips 5)
+      // }
+
+      // for (let i = 0; i < 10; i++) {
+      //   if (i === 5) {
+      //     continue; // skips the rest of the code for the iteration when i is 5
+      //   }
+      //   console.log(i); // Prints 0, 1, 2, 3, 4, 6, 7, 8, 9 (skips 5)
+      // }
+
+      // let num = 5;
+      // let str = "5";
+      // console.log(num == str); // true, because `==` converts `str` to a number before comparing.
+
+      // let num = 5;
+      // let str = "5";
+      // console.log( num === str); // false, because `===` checks both value and type
+
+      // alert("This is an alert message box.");
+      // let name = prompt("What is your name?");
+      // alert("Hello, " + name + "!");
+
+      // eval(string);
+
+      // let x = 10;
+      // let y = 20;
+      // console.log(eval("x + y")); // output: 30, because eval calculate string.
+
+      // let i = 0;
+      // do{
+      //   console.log(i); // output: 0, 1, 2
+      //   i++;
+      // }while(i < 3);
+
+      // let i = 0;
+      // while (i < 3) {
+      //   console.log(i); // output: 0,1,2
+      //   i++;
+      // }
+
+      // let largestNumber = Math.max(10, 20, 30, 50);
+      // console.log(largestNumber); // output: 50, this is built-in function
+      // function greet(name) {
+      //   return "Hello, " + name + "!";
+      // }
+      // greet();
+      // // user defined function
+
+      // let age = 18;
+      // let result = age >= 18 ? "Adult" : "Minor";
+      // console.log(result); // output: Adult.
     </script>
   </body>
 </html>
