@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Test</title>
+    <style>
+      #parent {
+        width: 350px;
+        margin: 0 auto;
+        border-radius: 10px;
+        margin-top: 50px;
+        background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        transition: all linear 0.4;
+      }
+      #parent:hover {
+        box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
+      }
+      #form {
+        padding: 50px;
+      }
+      #wrap {
+        max-width: 320px;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
+      #wrap > label {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+      #wrap > input {
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+      }
+      #span-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        column-gap: 10px;
+      }
+      #btn-wrap {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin-top: 30px;
+      }
+      button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: 600;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parent">
+      <form action="#" id="form" name="form" onsubmit="onSubmit(event)">
+        <table>
+          <tr>
+            <td>
+              <label for="fullname">Full Name</label> <br />
+              <input
+                type="text"
+                id="name"
+                name="name"
+                onblur="nameValidate(event)"
+              />
+              <span id="nameAlert" style="display: none; color: red"
+                >Name start 3 character to 16 char.</span
+              >
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label for="email">Email</label> <br />
+              <input
+                type="text"
+                id="email"
+                name="email"
+                onblur="emailValidate(event)"
+              />
+              <span id="emailAlert" style="display: none; color: red"
+                >Envalid email!</span
+              >
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label for="gender">Gender</label> <br />
+              <tr>
+                <td>
+                  <label for="male" id="">Male</label>
+                  <input type="radio" name="gender" id="male" value="male" />
+                  <br />
+                  <label for="female">Female</label>
+                  <input
+                    type="radio"
+                    name="gender"
+                    id="female"
+                    value="female"
+                  />
+                </td>
+              </tr>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label for="course">Course</label> <br />
+              <select name="course" id="course">
+                <option value="" selected>Select</option>
+                <option value="javascript">JavaScript</option>
+                <option value="java">java</option>
+                <option value="python">python</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <button
+                type="submit"
+                style="color: black"
+                id="subBtn"
+                onclick="handleSubmit()"
+              >
+                Submit
+              </button>
+              <button type="reset" style="color: black">reset</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+
+    <script>
+      let name = "";
+      let email = "";
+      let subBtn = document.getElementById("subBtn");
+
+      function nameValidate(event) {
+        let { value } = event.target;
+        let regEx = /^[A-Za-z][0-9A-Za-z ]{3,12}$/;
+        let alertShow = document.getElementById("nameAlert");
+
+        if (!regEx.test(value)) {
+          subBtn.disabled = true;
+          alertShow.style.display = "block";
+        } else {
+          name = value;
+          subBtn.disabled = false;
+          alertShow.style.display = "none";
+        }
+      }
+
+      // Email Validation
+      function emailValidate(event) {
+        let { value } = event.target;
+        let emailRegx = /^[^ ]+@[^ ]+\.[a-z]{2,4}$/;
+        let emailAleart = document.getElementById("emailAlert");
+
+        if (!emailRegx.test(value)) {
+          subBtn.disabled = true;
+          emailAleart.style.display = "block";
+        } else {
+          email = value;
+          subBtn.disabled = false;
+          alertShow.style.display = "none";
+        }
+      }
+
+      const handleSubmit = () => {
+        let language = document.querySelector('input[name="course"]:checked');
+        let formValue = document.form;
+        let genderValue = formValue.gender.value;
+        let course = formValue.course.value;
+
+        let openWindow = window.open(
+          "",
+          "",
+          "width: 500px, height: 400, top: 100px, left: 400px"
+        );
+
+        let formStyle = `style="width: 350px;
+        margin: 0 auto;
+        border-radius: 10px;
+        padding: 40px;
+        margin-top: 50px;
+        background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        transition: all linear 0.4;"`;
+
+        let closebtn = `style=" background-color: red; font-size: 16px;padding: 10px 20px;
+                border: none;
+                outline: none;
+                border-radius: 5px;
+                color: white;
+                cursor: pointer;"`;
+
+        let printbtn = `style="background-color: rgb(60, 224, 82); font-size: 16px;padding: 10px 20px;
+                border: none;
+                outline: none;
+                border-radius: 5px;
+                color: white;
+                cursor: pointer;"`;
+
+        with (openWindow.document) {
+          write(`<body >`);
+          write(`<div ${formStyle}>`);
+
+          write(`Name: ${name} <br>`);
+          write(`Email: ${email} <br>`);
+          write(`Language: ${course}<br>`);
+          write(`Gender: ${genderValue}<br><br>`);
+          write(`<button onclick="self.close()" ${closebtn} >Close</button> `);
+          write(`<button onclick="self.print()" ${printbtn}>Print</button> `);
+        }
+      };
+
+      function onSubmit(event) {
+        event.preventDefault();
+        let language = document.querySelector('input[name="course"]:checked');
+        let formValue = document.form;
+        let genderValue = formValue.gender.value;
+
+        if (name && email && genderValue && language && language) {
+          handleSubmit();
+        } else {
+          subBtn.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>

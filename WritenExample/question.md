@@ -186,5 +186,5 @@
         console.log(result); // Output: "Adult"
     ```
 
-    shotcut : If the condition is true,it returns expressionIfTrue.
+    shotcut: If the condition is true,it returns expressionIfTrue.
     If the condition is false,it returns expressionIfFalse.
