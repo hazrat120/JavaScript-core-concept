@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+    <style>
+      input:focus {
+        outline: none;
+      }
+      #parent {
+        width: 400px;
+        height: auto;
+        background-color: rgba(128, 128, 128, 0.324);
+        margin: 0 auto;
+        padding: 30px;
+        border-radius: 10px;
+      }
+      #wrap {
+        display: flex;
+        flex-direction: column;
+        padding: 8px;
+      }
+      .same {
+        padding: 8px 0 8px 15px;
+        border-radius: 5px;
+        border: none;
+      }
+      label {
+        font-size: 20px;
+        line-height: 34px;
+        letter-spacing: 0.5px;
+      }
+      #textwrap {
+        display: flex;
+        flex-direction: column;
+        padding: 8px;
+      }
+      button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        margin: 5px;
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .valid {
+        color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="parent">
+      <form action="#" name="form">
+        <!-- Name Fild -->
+        <div id="wrap" class="name">
+          <label for="name">Full Name</label>
+          <input type="text" id="nameinp" class="same namClass" name="name" />
+          <span id="nameVal" class="valid" style="display: none"
+            >Name can only contain letters (A-Z, a-z).</span
+          >
+        </div>
+
+        <!-- Email Fild -->
+        <div id="wrap" class="email">
+          <label for="email">Email</label>
+          <input
+            type="text"
+            id="emailinp"
+            class="same emailClass"
+            name="email"
+          />
+          <span id="emailVal" class="valid" style="display: none"
+            >Please enter a valid email address</span
+          >
+        </div>
+
+        <!-- Password fild -->
+        <div id="wrap" class="pass">
+          <label for="pass">Password</label>
+          <input
+            type="text"
+            id="passinp"
+            class="same passClass"
+            name="password"
+          />
+          <span id="passVal" class="valid" style="display: none"
+            >Minimum 8 characters long</span
+          >
+        </div>
+
+        <!-- round fild-->
+        <div id="wrap" class="round">
+          <label for="round">Select Round</label>
+          <select name="round" id="round" class="same">
+            <option value="" selected>Select</option>
+            <option value="Round-59">Round 59</option>
+            <option value="Round-60">Round 60</option>
+            <option value="Round-61">Round 61</option>
+            <option value="Round-62">Round 62</option>
+          </select>
+        </div>
+
+        <!-- subject fild-->
+        <div id="textwrap" class="">
+          <label for="subject">Select Subject: </label>
+          <div style="margin-left: 30px; display: flex; column-gap: 20px">
+            <span>
+              <label for="js">JavaScript</label>
+              <input type="checkbox" name="sub" id="js" value="JavaScript" />
+            </span>
+            <span>
+              <label for="python">Python</label>
+              <input type="checkbox" name="sub" id="python" value="Python" />
+            </span>
+            <span>
+              <label for="java">Java</label>
+              <input type="checkbox" name="sub" id="java" value="Java" />
+            </span>
+          </div>
+        </div>
+
+        <!-- gender fild-->
+        <div id="textwrap" class="">
+          <label for="gender">Gender</label>
+          <div style="margin-left: 30px; display: flex; column-gap: 30px">
+            <span>
+              <label for="male">Male</label>
+              <input type="radio" id="male" name="gender" value="Male" />
+            </span>
+            <span>
+              <label for="female">Female</label>
+              <input type="radio" id="female" name="gender" value="Female" />
+            </span>
+          </div>
+        </div>
+
+        <div
+          id="textwrap"
+          style="
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            column-gap: 30px;
+            margin-top: 20px;
+          "
+        >
+          <button id="submit" value="value" type="submit" style="color: green">
+            Submit
+          </button>
+          <button id="reset" value="value" type="reset" style="color: red">
+            Reset
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      //   name validation
+      document.getElementById("nameinp").addEventListener("keyup", (eve) => {
+        let { value } = eve.target;
+        let alert = document.getElementById("nameVal");
+        let nameinp = document.querySelector(".namClass");
+        const nameRegex = /^[A-Za-z]+$/;
+
+        if (!nameRegex.test(value)) {
+          alert.style.display = "block";
+          nameinp.style.border = "2px solid red";
+        } else {
+          alert.style.display = "none";
+          nameinp.style.border = "2px solid green";
+        }
+      });
+
+      // email validation
+      document.getElementById("emailinp").addEventListener("keyup", (eve) => {
+        let { value } = eve.target;
+        let alert = document.getElementById("emailVal");
+        let emailinp = document.querySelector(".emailClass");
+        let emailRegx = /^[^ ]+@[^ ]+\.[a-z]{2,4}$/;
+
+        if (!emailRegx.test(value)) {
+          alert.style.display = "block";
+          emailinp.style.border = "2px solid red";
+        } else {
+          alert.style.display = "none";
+          emailinp.style.border = "2px solid green";
+        }
+      });
+
+      // password validation
+      document.getElementById("passinp").addEventListener("keyup", (eve) => {
+        let { value } = eve.target;
+        let alert = document.getElementById("passVal");
+        let passinp = document.querySelector(".passClass");
+        const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d).{6,}$/;
+
+        if (!passwordRegex.test(value)) {
+          alert.style.display = "block";
+          passinp.style.border = "2px solid red";
+        } else {
+          alert.style.display = "none";
+          passinp.style.border = "2px solid green";
+        }
+      });
+
+      // form submit
+      document.getElementById("submit").addEventListener("click", () => {
+        let formValue = document.form;
+        let gender = formValue.gender.value;
+        let name = formValue.name.value;
+        let email = formValue.email.value;
+        let password = formValue.password.value;
+        let round = formValue.round.value;
+        let subject = "";
+
+        for (let i = 0; i < formValue.sub.length; i++) {
+          if (formValue.sub[i].checked) {
+            subject += formValue.sub[i].value + ", ";
+          }
+        }
+
+        if (name && email && password) {
+          let openWindow = window.open(
+            "",
+            "",
+            "width: 200px, height: 200px, top: 100px, left: 400px"
+          );
+
+          let formStyle = `style="width: 350px;
+        margin: 0 auto;
+        border-radius: 10px;
+        padding: 40px;
+        margin-top: 50px;
+        background-color: rgba(128, 128, 128, 0.324);
+        transition: all linear 0.4;"`;
+
+          let closebtn = `style=" background-color: red; font-size: 16px;padding: 10px 20px;
+                border: none;
+                outline: none;
+                border-radius: 5px;
+                color: white;
+                cursor: pointer;"`;
+
+          let printbtn = `style="background-color: rgb(60, 224, 82); font-size: 16px;padding: 10px 20px;
+                border: none;
+                outline: none;
+                border-radius: 5px;
+                color: white;
+                cursor: pointer;"`;
+
+          with (openWindow.document) {
+            write(`<body >`);
+            write(`<div ${formStyle}>`);
+
+            write(`Name: ${name} <br>`);
+            write(`Email: ${email} <br>`);
+            write(`Pssword: ${password} <br>`);
+            write(`Round: ${round}<br>`);
+            write(`Subject: ${subject}<br>`);
+            write(`Gender: ${gender}<br><br>`);
+            write(
+              `<button onclick="self.close()" ${closebtn} >Close</button> `
+            );
+            write(`<button onclick="self.print()" ${printbtn}>Print</button> `);
+          }
+        } else {
+          alert("Fill Input");
+        }
+      });
+
+      // reset btn
+      document.getElementById("reset").addEventListener("click", () => {
+        location.reload();
+      });
+    </script>
+  </body>
+</html>
